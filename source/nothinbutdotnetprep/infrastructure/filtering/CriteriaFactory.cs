@@ -20,7 +20,17 @@ namespace nothinbutdotnetprep.infrastructure.filtering
 
         public Criteria<ItemToMatch> equal_to_any(params PropertyType[] values)
         {
-            throw new NotImplementedException();
+            return new AnonymousCriteria<ItemToMatch>(x =>
+                                                          {
+                                                              foreach (var value in values)
+                                                              {
+                                                                  if (accessor(x).Equals(value))
+                                                                  {
+                                                                      return true;
+                                                                  }
+                                                              }
+                                                              return false;
+                                                          });
         }
     }
 }
