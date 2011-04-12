@@ -282,7 +282,9 @@ namespace nothinbutdotnetprep.specs
 
             It should_be_able_to_sort_all_movies_by_title_descending = () =>
             {
-                var comparer = //Use the dsl
+                //var comparer =  Sort<Movie>.by(x => x.title).ascending();
+                /* or */
+                //var comparer = Sort<Movie>.compare_by(x => x.title).asc();
                 var results = sut.sort_all_movies_by_title_descending;
 
                 results.ShouldContainOnlyInOrder(theres_something_about_mary, the_ring, shrek,
